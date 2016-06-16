@@ -1,5 +1,6 @@
 package com.example.anurag.activeandroidlibrarycrud;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -7,13 +8,18 @@ import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 private AppCompatEditText country;
 private AppCompatEditText city;
 private AppCompatButton button;
+public static String TOKEN = "Country";
+public static String TOKEN_1="City";
 
 private ArrayList<Country> list ;
     @Override
@@ -38,28 +44,35 @@ private ArrayList<Country> list ;
         {
             if(c2.equalsIgnoreCase(""))
             {
-                //Display Function to show cities belonging to the country in the database
+                Country ob = new Country();
+                ob.name=c1;
+
+                //Switching activity and passing extra data to show cities belonging to the country in the database
+
+                if(list.contains(ob)) {
+                    Intent intent = new Intent(this, Main2Activity.class);
+                    intent.putExtra(TOKEN,c1);
+
+                    List<City> cityList=get(ob);
+                    ArrayList<String> namelist= new ArrayList<>();
+                    for(int i =0;i<cityList.size() ;i++)
+                    {
+                        String name = cityList.get(i).name;
+                        namelist.add(name);
+                    }
+                    intent.putExtra(TOKEN_1,namelist);
+
+                    startActivity(intent);
+
+                }
             }else
             {
-                 if(list.isEmpty())
-                 {
 
-                     Country ob=new Country();
+                    Country ob = new Country();
                      ob.name=c1;
-                     ob.save();
-                     list.add(ob);
-                     City ob1=new City();
-                     ob1.name=c2;
-                     ob1.country=ob;
-                     ob1.save();
-                     Toast.makeText(getApplicationContext(),"Value accepted",Toast.LENGTH_LONG).show();
 
-                 }else
-                 {   Country ob = new Country();
-                     ob.name=c1;
-                     ob.save();
                       if(!list.contains(ob))
-                      {
+                      {   ob.save();
                           list.add(ob);
 
                       }
@@ -68,10 +81,14 @@ private ArrayList<Country> list ;
                      ob1.country=ob;
                      ob1.save();
                      Toast.makeText(getApplicationContext(),"Value accepted",Toast.LENGTH_LONG).show();
-                 }
+
             }
         }
 
+    }
+    public static  List<City> get(Country ob)
+    {
+        return  new Select().from(City.class).where("Country=?",ob.getId()).orderBy("Name ASC").execute();
     }
 
     @Override

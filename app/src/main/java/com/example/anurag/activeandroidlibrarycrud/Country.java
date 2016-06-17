@@ -11,8 +11,11 @@ import java.util.List;
  */
 @Table(name ="Country")
 public class Country extends Model {
-    @Column(name="NAME")
+    @Column(name="name")
     public String name;
+
+    @Column(name ="pm")
+    public String pm;
 
     public List<City> cities()
     {

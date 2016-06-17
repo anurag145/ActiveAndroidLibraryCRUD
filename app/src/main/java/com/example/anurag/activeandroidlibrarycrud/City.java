@@ -14,5 +14,5 @@ public class City extends Model {
     public String name;
 
     @Column(name="Country")
-    public Country country;
+    public String country;
 }

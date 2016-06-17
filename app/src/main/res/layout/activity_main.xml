@@ -9,42 +9,84 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.anurag.activeandroidlibrarycrud.MainActivity">
 
-    <android.support.v7.widget.AppCompatCheckedTextView
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Country"
-        android:textSize="50sp"
-        android:id="@+id/country"/>
-    <android.support.v7.widget.AppCompatEditText
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       android:paddingTop="100dp"
-        android:id="@+id/view" />
-
-
-    <android.support.v7.widget.AppCompatCheckedTextView
-        android:layout_width="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="City"
-        android:textSize="50sp"
-        android:paddingTop="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/city"
-        />
+        android:id="@+id/textView2"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentStart="true" />
 
-      <android.support.v7.widget.AppCompatEditText
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/view2"
-          android:paddingTop="250dp"
-          />
-    <android.support.v7.widget.AppCompatButton
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Submit"
-        android:textSize="25sp"
-        android:layout_below="@+id/view2"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_alignTop="@+id/textView2"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="39dp"
-        android:id="@+id/button"/>
+        android:layout_marginTop="37dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:id="@+id/button"
+        android:layout_marginBottom="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Head of State"
+        android:id="@+id/textView3"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignEnd="@+id/editText3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Enter All , or just country to View data"
+        android:id="@+id/textView6"
+        android:textSize="20sp"
+        android:layout_below="@+id/editText3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

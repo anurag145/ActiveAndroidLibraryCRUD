@@ -27,7 +27,8 @@
             android:name="AA_DB_VERSION"
             android:value="5" />
 
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".Main3Activity"></activity>
     </application>
 
 </manifest>
